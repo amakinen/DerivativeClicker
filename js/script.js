@@ -155,8 +155,6 @@ function save() {
 	
 	var d = new Date();
 	$("#lastSave").html(d.toLocaleTimeString());
-	
-	ga('send', 'event', 'save', 'click', 'save'); //analytics
 }
 
 function load() {
@@ -285,8 +283,6 @@ function reset(tier) {
 				}
 			}
 			updateAll();
-			
-			ga('send', 'event', 'reset', 'click', 'reset'); //analytics
 		}
 	}
 }
