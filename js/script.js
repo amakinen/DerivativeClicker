@@ -653,6 +653,17 @@ function updateAll(){
     updateInfini();
 }
 
+//make some updates deferred to improve performance
+function makeDeferred(func) {
+	var timeout;
+	return function deferred() {
+		clearTimeout(timeout);
+		timeout = setTimeout(func);
+	};
+}
+updateMoney = makeDeferred(updateMoney);
+updateInventory = makeDeferred(updateInventory);
+
 //this is a function to click the money button: allows auto button clicking
 function moneyButtonClick(amount) {
 	var ifUpdate = false;
